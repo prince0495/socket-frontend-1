@@ -6,7 +6,8 @@ import { ClientToServerEvents, ServerToClientEvents } from './types'
 
 function App() {
   const socket: Socket<ServerToClientEvents, ClientToServerEvents> = useMemo(() => 
-    io(process.env.IO_SERVER_URL, {
+    io('https://socket-backend-1-jzfe.onrender.com', {
+      transports: ['websocket', 'polling'],
       withCredentials: true
     })
     , [])
